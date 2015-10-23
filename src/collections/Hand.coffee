@@ -1,6 +1,7 @@
 class window.Hand extends Backbone.Collection
+  # two hand collections, instantiated in deck collection
   model: Card
-
+  # params are coming from instantiations
   initialize: (array, @deck, @isDealer) ->
 
   hit: ->
@@ -21,5 +22,8 @@ class window.Hand extends Backbone.Collection
     # Usually, that array contains one element. That is the only score.
     # when there is an ace, it offers you two scores - the original score, and score + 10.
     [@minScore(), @minScore() + 10 * @hasAce()]
+
+  #app.view is expecting
+  #stand method
 
 
