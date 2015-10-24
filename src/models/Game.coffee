@@ -5,7 +5,6 @@ class window.Game extends Backbone.Model
     @set 'dealerHand', deck.dealDealer()
     
     @get('dealerHand').on('findWinner', => 
-      console.log('listen triggered')
       if @get('playerHand').scores()[0] > @get('dealerHand').scores()[0] 
         console.log('YAY!')
       else if @get('playerHand').scores()[0] is @get('dealerHand').scores()[0]
@@ -13,9 +12,12 @@ class window.Game extends Backbone.Model
       else  
         console.log('Dealer wins!'))
     
-    @get('deck').on('endGame', =>
-      alert "wanna play again?")
+    @get('dealerHand').on('endGame', =>
+      console.log('ended'))
 
+    ###if we added more players, instead of this immediate reveal, 
+    we should have dealer reveal and keep hitting for the other players
+    ###
     @get('playerHand').on('bust', => 
       @get('dealerHand').at(0).reveal())
     

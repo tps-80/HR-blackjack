@@ -14,7 +14,7 @@ class window.HandView extends Backbone.View
     @$el.html @template @collection
     @$el.append @collection.map (card) ->
       new CardView(model: card).$el
-    @$('.score').text @collection.scores()[0]
+    @$('.score').text @collection.scores()[1]
 
     #grabs the first value from the scores array, but need to consider ace cases
     #renders an instance of a cardview from the collection
