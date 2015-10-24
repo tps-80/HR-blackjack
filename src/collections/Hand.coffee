@@ -28,7 +28,14 @@ class window.Hand extends Backbone.Collection
     #if score with ace > 21, default back to min score and check if hand is still valid
 
   checkScore: =>
-    @hit() until @scores()[1] > 17
+    if @scores()[1] is 21
+      @findWinner()
+    else  
+      if @hasAce() is 1
+        @hit() until @scores()[1] > 17
+      else
+        @hit() until @scores()[0] > 17
+    
     #used fat arrow instead of below
     #context = @
     #@hit() until context.scores()[0] > 17

@@ -15,3 +15,7 @@
 .hand {
   overflow: auto;
 }
+
+body {
+  background-color: green;
+}

@@ -6,11 +6,11 @@ class window.Game extends Backbone.Model
     
     @get('dealerHand').on('findWinner', => 
       if @get('playerHand').scores()[1] > @get('dealerHand').scores()[1] 
-        console.log('YAY!')
+        alert 'YAY! Congratulations You Won!!!'
       else if @get('playerHand').scores()[1] is @get('dealerHand').scores()[1]
-        console.log('You\'ve Tied!')
+        alert 'You\'ve Tied!'
       else  
-        console.log('Dealer wins!'))
+        alert 'Sorry, Dealer wins!')
     
     @get('dealerHand').on('endGame', =>
       console.log('ended')
