@@ -10,8 +10,7 @@ class window.GameView extends Backbone.View
     'click .stand-button': -> 
       @model.get('dealerHand').at(0).reveal()
       @model.get('dealerHand').checkScore()
-      #check dealer's hand
-        #if less than 17, hit
+      
 
   initialize: ->
     @render()
