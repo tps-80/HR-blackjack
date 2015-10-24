@@ -29,9 +29,13 @@ class window.Hand extends Backbone.Collection
     #if score with ace === 21 === automatic stand
     #if score with ace > 21, default back to min score and check if hand is still valid
 
-  #app.view is expecting
+  #gameview is expecting
   #stand method
     # evaluate both the player and dealer's hand and alert winner
 
   #bust?
   #on each hit, check if its a bust
+  stand: -> @map (card) -> 
+    if card.get('revealed') is false then card.flip()
+  #iterate over collection and reveal cards
+    
