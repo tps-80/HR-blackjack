@@ -13,8 +13,8 @@ class window.Game extends Backbone.Model
         alert 'Sorry, Dealer wins!')
     
     @get('dealerHand').on('endGame', =>
-      console.log('ended')
-      #prompt('Play again?')
+      @set 'playerHand', deck.dealPlayer()
+      @set 'dealerHand', deck.dealDealer()
       )
 
     ###if we added more players, instead of this immediate reveal, 

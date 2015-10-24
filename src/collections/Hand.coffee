@@ -39,11 +39,8 @@ class window.Hand extends Backbone.Collection
     #used fat arrow instead of below
     #context = @
     #@hit() until context.scores()[0] > 17
-    
-    #if hit brings dealer over 21, invoke bust
     if @scores()[1] <= 21 then @findWinner()
    
-
   findWinner: ->
     @trigger('findWinner', @)
 
@@ -52,6 +49,9 @@ class window.Hand extends Backbone.Collection
       @trigger('bust', this)
       alert "BUST! Sorry, you lose"
     else 
-      @trigger('endGame', this)
       alert "Dealer Busted, you win!!"
-      
+
+  endGame: ->
+    @trigger('endGame', @)
+    
+

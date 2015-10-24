@@ -1,6 +1,6 @@
 class window.GameView extends Backbone.View
   template: _.template '
-    <button class="hit-button">Hit</button> <button class="stand-button">Stand</button>
+    <button class="hit-button">Hit</button> <button class="stand-button">Stand</button><button class="new-game">New Game</button>
     <div class="player-hand-container"></div>
     <div class="dealer-hand-container"></div>
   '
@@ -10,7 +10,8 @@ class window.GameView extends Backbone.View
     'click .stand-button': -> 
       @model.get('dealerHand').at(0).reveal()
       @model.get('dealerHand').checkScore()
-
+    'click .new-game': -> 
+      @model.get('dealerHand').endGame()
 
   initialize: ->
     @render()
