@@ -9,7 +9,6 @@ class window.Hand extends Backbone.Collection
     #underscore method that returns the last element
     @last()
 
-
   hasAce: -> @reduce (memo, card) ->
     memo or card.get('value') is 1
   , 0
@@ -35,7 +34,15 @@ class window.Hand extends Backbone.Collection
 
   #bust?
   #on each hit, check if its a bust
-  stand: -> @map (card) -> 
-    if card.get('revealed') is false then card.flip()
-  #iterate over collection and reveal cards
-    
+  #bust: -> 
+  checkScore: =>
+    @hit() until @scores()[0] > 17
+    #used fat arrow instead of below
+    #context = @
+    #@hit() until context.scores()[0] > 17
+
+    #if hit brings dealer over 21, invoke bust
+   
+
+  findWinner: =>
+    @trigger('findWinner', @)

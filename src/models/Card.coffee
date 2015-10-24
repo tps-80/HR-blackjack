@@ -19,3 +19,5 @@ class window.Card extends Backbone.Model
     @set 'revealed', !@get 'revealed'
     @
 
+  reveal: -> 
+    if @get('revealed') is false then @flip()
