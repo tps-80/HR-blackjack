@@ -5,15 +5,17 @@ class window.Game extends Backbone.Model
     @set 'dealerHand', deck.dealDealer()
     
     @get('dealerHand').on('findWinner', => 
-      if @get('playerHand').scores()[0] > @get('dealerHand').scores()[0] 
+      if @get('playerHand').scores()[1] > @get('dealerHand').scores()[1] 
         console.log('YAY!')
-      else if @get('playerHand').scores()[0] is @get('dealerHand').scores()[0]
+      else if @get('playerHand').scores()[1] is @get('dealerHand').scores()[1]
         console.log('You\'ve Tied!')
       else  
         console.log('Dealer wins!'))
     
     @get('dealerHand').on('endGame', =>
-      console.log('ended'))
+      console.log('ended')
+      #prompt('Play again?')
+      )
 
     ###if we added more players, instead of this immediate reveal, 
     we should have dealer reveal and keep hitting for the other players

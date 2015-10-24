@@ -8,7 +8,7 @@ class window.Hand extends Backbone.Collection
     @add(@deck.pop())
     #underscore method that returns the last element
     @last()
-    if @scores()[1] > 21 then @bust()
+    if @scores()[0] > 21 then @bust()
     if @scores()[1] is 21 then @findWinner()
 
   hasAce: -> @reduce (memo, card) ->
@@ -32,7 +32,7 @@ class window.Hand extends Backbone.Collection
     #used fat arrow instead of below
     #context = @
     #@hit() until context.scores()[0] > 17
-    console.log(scores())
+    
     #if hit brings dealer over 21, invoke bust
     if @scores()[1] <= 21 then @findWinner()
    
